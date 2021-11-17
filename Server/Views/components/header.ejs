@@ -21,26 +21,20 @@
         <a class="nav-link active" href="/home"><i class="fas fa-home fa-lg"></i> Home</a>
       </li>
       
-      <li class="nav-item">
-        <a class="nav-link" href="/tournament-list"><i class="fas fa-cog fa-lg"></i> View Active Tournaments</a>
-      </li>
+      
 
       <% if(displayName) { %>
         <li class="nav-item">
           <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
         </li>
-        <li class="nav-item">
-        <a class="nav-link" href="/tournament-list/add"><button type="button" id= "createtourneybtn" class="btn  btn-sm"><i class="fas fa-plus"></i> Create New Tournament</button> </a>
-      </li>
+        
       <% } else { %>
         <li class="nav-item">
           <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a>
         </li>
       <% } %>
 
-      <!--<li class="nav-item">                 *******removed Create New Match*******
-        <a class="nav-link" href="/match-list/add"><button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Create New Match</button> </a>
-      </li>-->
+      
 
     </ul>
   </div>

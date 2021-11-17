@@ -1,0 +1,51 @@
+<!--  File Name: header.ejs
+      Author: Web Wiz
+      Group Number: 1
+      Date: July 13, 2021
+-->
+<div class="header-bottombackground">
+<nav class="navbar navbar-expand-lg navbar-dark header">
+  <div id="logo" class="d-flex justify-content-center"><a class="navbar-brand " href="#">
+    <img src="/Assets/images/logo.png" alt="" style="width:30%;">
+    <h3 style="display:inline;">Web Wiz</h3></a>
+  </div>
+
+  
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navcontent" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" href="/home"><i class="fas fa-home fa-lg"></i> Home</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/tournament-list"><i class="fas fa-cog fa-lg"></i> View Active Tournaments</a>
+      </li>
+
+      <% if(displayName) { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/tournament-list/add"><button type="button" id= "createtourneybtn" class="btn  btn-sm"><i class="fas fa-plus"></i> Create New Tournament</button> </a>
+      </li>
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a>
+        </li>
+      <% } %>
+
+      <!--<li class="nav-item">                 *******removed Create New Match*******
+        <a class="nav-link" href="/match-list/add"><button type="button" class="btn btn-primary btn-sm"><i class="fas fa-plus"></i> Create New Match</button> </a>
+      </li>-->
+
+    </ul>
+  </div>
+</div>
+
+</nav>
+</div>
+<div class="box"></div>

@@ -1,16 +1,9 @@
-//      File Name: index.ts
-//      Author: Web Wiz
-//      Group Number: 1
-//      Date: July 13, 2021
-//
+
 import express, { Request, Response, NextFunction } from 'express';
 
 import passport from 'passport';
 import User from '../Models/user'; // create an instance of the User model
 import { UserDisplayName } from '../Util';  // import Util functions
-import Competitor from '../Models/competitor';
-import Match from '../Models/match';
-import Tournament from '../Models/tournament';
 
 
 // Display Page Functions
@@ -20,45 +13,7 @@ export function DisplayHomePage(req: Request, res: Response, next: NextFunction)
     res.render('index', { title: 'Home', page: 'home',  displayName: UserDisplayName(req)  });
 }
 
-export function DisplayTournamentStatPage(req: Request, res: Response, next: NextFunction): void
-{
-    res.render('index', { title: 'Tournament Statistics', page: 'tournamentstat',  displayName: UserDisplayName(req) });
-}
 
-export function DisplayActiveTourneyPage(req: Request, res: Response, next: NextFunction): void
-{
-    res.render("index", { title: "Active Tournaments", page: "activetourney" ,  displayName: UserDisplayName(req) });
-}
-
-export function DisplayServicesPage(req: Request, res: Response, next: NextFunction): void
-{
-    res.render('index', { title: 'Our Services', page: 'services'  ,  displayName: UserDisplayName(req) });
-}
-export function DisplayNewTourneyPage(req: Request, res: Response, next: NextFunction): void
-{
-    res.render('index', { title: 'Create New A Tournament', page: 'newtourney'  ,  displayName: UserDisplayName(req) });
-}
-
-export function DisplayViewTourneyPage(req: Request, res: Response, next: NextFunction): void
-{
-    Competitor.find(function (err, competitorCollection) {
-        if (err) {
-            return console.error(err);
-        }
-
-
-        Tournament.find(function (err, tournamentCollection) {
-
-            if (err) {
-                return console.error(err);
-            }
-
-
-            res.render('index', { title: 'Tournament Tree', page: 'viewtourney', competitor: competitorCollection, tournament: tournamentCollection, displayName: UserDisplayName(req) });
-
-        });
-    })
-}
 
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void
 {
@@ -150,8 +105,4 @@ export function ProcessLogoutPage(req: Request, res: Response, next: NextFunctio
     res.redirect('/login');
 }
 
-// export function DisplayCompetitorsListPage(req: Request, res: Response, next: NextFunction): void
-// {
-//     res.render('index', {title: 'Competitors List', page: 'competitor-list', displayName: UserDisplayName(req) });
-// }
 
