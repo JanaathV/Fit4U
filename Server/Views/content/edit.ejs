@@ -1,0 +1,36 @@
+<!--  File Name: edit.ejs
+      Author: Web Wiz
+      Group Number: 1
+      Date: July 13, 2021
+-->
+
+<div class="container" >
+    <h1>Add competitors</h1>
+    <form method="POST">      
+
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Full Name</label>
+                <input id="name" type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="Competitor Full Name"
+                name="fullname" value="<%= competitor.fullname %>" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Tournament ID:</label>
+                <input id="comp_Tournament_Id" type="text" class="form-control" placeholder="Tournament ID" aria-label="comp_Tournament_Id" aria-describedby="Tournament ID"
+                name="comp_Tournament_Id" value="<%= competitor.comp_Tournament_Id %>" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Biography</label>
+                <input id="description" type="text" class="form-control" placeholder="Biography" aria-label="Description" aria-describedby="Competitor Description"
+                name="description" value="<%= competitor.description %>" required>
+        <br>   
+        <div class="d-flex justify-content-around">
+            <% if(title == "Edit") { %>
+                <button type ="submit" button id="editButton" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+            <% } else { %>
+                <button type ="submit" button id="addButton" class="btn btn-primary"><i class="fas fa-plus fa-lg"></i> Add</button>
+            <% } %>
+        </div>        
+
+            
+    </form>
+</div>

@@ -1,0 +1,47 @@
+<!--  File Name: index.ejs
+      Author: Web Wiz
+      Group Number: 1
+      Date: July 13, 2021
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= title %></title>
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+  <!-- CSS Section -->
+  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="/Content/app.css">
+  <link rel="shortcut icon" type="image/jpg" href="https://cdn.discordapp.com/attachments/861739847839252534/867646368486653962/wizard.jpg"/>
+</head>
+<body  onload="get()">
+  <!-- Navigation Section -->
+  <header>
+    <%- include('components/header.ejs'); %>
+  </header>
+
+  <!-- Main Content Section -->
+  <main>
+      <div class="">
+        <%- include('content/' + page + '.ejs'); %>
+      </div>
+  </main>
+  
+  <!-- Bottom Nav -->
+  <footer>
+    <%- include('components/footer.ejs'); %>
+  </footer>
+    
+  <!-- JavaScript Section -->
+  <script src="/jquery/dist/jquery.min.js"></script>
+  <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/Scripts/app.js"></script>
+  <script src="/Scripts/round_progression.js"></script>
+</body>
+</html>

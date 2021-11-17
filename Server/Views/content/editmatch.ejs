@@ -1,0 +1,45 @@
+<!--  File Name: editmatch.ejs
+      Author: Web Wiz
+      Group Number: 1
+      Date: July 13, 2021
+-->
+<div class="container">
+<div class="row justify-content-lg-center g-3">
+    <h1><%= title %> Match</h1>
+
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-fullname-default">Match</span>
+            <input id="matchNumber" type="text" class="form-control" placeholder="Match" aria-label="Match" aria-describedby="Match"
+            name="matchNumber" value="<%= match.matchNumber %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-description-default">Competitor 1</span>
+            <input id="competitor1Name" type="text" class="form-control" placeholder="Competitor 1 Name" aria-label="Competitor 1 Name" aria-describedby="Competitor 1 Name"
+            name="competitor1Name" value="<%= match.competitor1Name %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-description-default">Competitor 2</span>
+            <input id="competitor2Name" type="text" class="form-control" placeholder="Competitor 2 Name" aria-label="Competitor 2 Name" aria-describedby="Competitor 2 Name"
+            name="competitor2Name" value="<%= match.competitor2Name %>" required>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-description-default">Winner</span>
+            <input id="winner" type="text" class="form-control" placeholder="Winner" aria-label="Winner" aria-describedby="winner"
+            name="winner" value="<%= match.winner %>" required>
+        </div>
+
+        <% if(title == "Edit") { %>
+            <button type ="submit" button id="editButton" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+        <% } else { %>
+            <button type ="submit" button id="addButton" class="btn btn-primary"><i class="fas fa-plus fa-lg"></i> Add</button>
+        <% } %>
+
+        <a href="/match-list" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo fa-lg"></i> Cancel</a>
+    </form>
+</div>
+</div>

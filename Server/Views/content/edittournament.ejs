@@ -1,0 +1,72 @@
+<!--  File Name: edittournament.ejs
+      Author: Web Wiz
+      Group Number: 1
+      Date: July 13, 2021
+-->
+<div class ="container">
+<div class="row justify-content-lg-center g-3">
+    <% if(title == "Add") { %>
+        <h1> Add Tournament</h1>
+        <% } else { %>
+            <h1> Edit Tournament</h1>
+            <% } %>
+
+    <form method="POST" class="col-lg-6 col-md-10 col-sm-10">
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Tournament's Name</label><br>
+            <input type="text" class="form-control" id="tournamentName" placeholder="Name" value="<%= tournament.tournamentName %>" name="tournamentName" required><br>
+        </div>
+        
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Tournament's Custom ID</label><br>
+            <input type="text" class="form-control" id="tournament_Custom_Id" placeholder="Tournament Custom ID" value="<%= tournament.tournament_Custom_Id %>" name="tournament_Custom_Id" required><br>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Number of Competitors</label><br>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="numberOfCompetitors" id="numberOfCompetitors" value="8" checked="checked">
+                <label class="form-check-label" for="inlineRadio1">8</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="numberOfCompetitors" id="numberOfCompetitors" value="16">
+                <label class="form-check-label" for="inlineRadio2">16</label>
+              </div>
+              </div>           
+        </div>
+
+        <div class="form-group">
+            <label for="cars">Select Tournament Type: </label>
+            <select name="type" id="type">
+                <option value="">Options</option>
+                <option value="E-sport" >E-Sport</option>
+                <option value="Sport">Sport</option>            
+            </select>
+            <br><br>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Description</label><br>
+            <textarea class="form-control" type="text" id="description" name="description" rows="6"placeholder="Tournament's Description" required><%= tournament.description %></textarea><br>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Champion</label><br>
+            <input id="champion" type="text" class="form-control" placeholder="Champion" aria-label="Champion" aria-describedby="Champion"
+            name="champion" value="<%= tournament.champion %>"><br><br>
+        </div>
+
+        <% if(title == "Add") { %>
+            <button type ="submit" button id="addButton" class="btn btn-primary"><i class="fas fa-plus fa-lg"></i> Add</button>
+        <% } else { %>
+            <button type ="submit" button id="editButton" class="btn btn-primary"><i class="fas fa-edit fa-lg"></i> Edit</button>
+        <% } %>
+
+        <a href="/tournament-list" id="cancelButton" type="button" class="btn btn-warning"><i class="fas fa-undo fa-lg"></i> Cancel</a>
+    </form>
+</div>
+</div>
+
+
