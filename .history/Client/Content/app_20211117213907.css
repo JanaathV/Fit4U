@@ -74,7 +74,7 @@ h1 {
   background-position: center center;
   height: 135vh;
   color: white;
-  font-family: "Hammersmith One", sans-serif;
+  font-family: "Russo One", sans-serif;
   opacity: 0.9;
 }
 .header-bottombackground {
@@ -125,8 +125,4 @@ h1 {
   text-align: left;
   background-color: #d5e1df;
   color: black;
-}
-
-h3 {
-  padding-left: 30px;
 }
