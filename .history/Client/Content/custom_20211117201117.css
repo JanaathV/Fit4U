@@ -1,5 +1,5 @@
 body{
-    background-color: lightblue;
+    background-color: #C1C1C1;
     font-family: 'Russo One', sans-serif;
 }
 
@@ -48,7 +48,7 @@ body{
     background-image:         linear-gradient(
         rgba(0, 0, 0, 0.7), 
         rgba(0, 0, 0, 0.7)
-      ), url(../Assets/images/background.jpg);
+      ), url(../Assets/images/SF-fullrez.jpg);
       background-size: cover;
     background-repeat: repeat-x;
     background-position: center center;
