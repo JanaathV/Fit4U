@@ -10,6 +10,7 @@ const index_1 = require("../Controllers/index");
 router.get('/', index_1.DisplayHomePage);
 router.get('/home', index_1.DisplayHomePage);
 router.get('/productpage', index_1.DisplayProductPage);
+router.get('/profile', index_1.DisplayProfilePage);
 router.get('/login', index_1.DisplayLoginPage);
 router.post('/login', index_1.ProcessLoginPage);
 router.get('/register', index_1.DisplayRegisterPage);

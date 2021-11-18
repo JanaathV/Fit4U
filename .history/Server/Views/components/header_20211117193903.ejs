@@ -1,0 +1,54 @@
+
+<div class="header-bottombackground">
+<nav class="navbar navbar-expand-lg navbar-dark header">
+  <div id="logo" class="d-flex justify-content-center"><a class="navbar-brand " href="#">
+    <img src="/Assets/images/logo.png" alt="" style="width:10%;">
+    <h3 style="display:inline;">Fit4U</h3></a>
+  </div>
+
+  
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navcontent" class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <li class="nav-item">
+        <a class="nav-link active" href="/home"><i class="fas fa-home fa-lg"></i> Home</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="/productpage"><i class="fas fa-walking"></i> Product Page</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link active" href="/profile"><i class="fas fa-user-circle"></i> Profile</a>
+      </li>
+
+      <% if(displayName) { %>
+
+      <li class="nav-item">
+        <a class="nav-link active" href="/profile"><i class="fas fa-user-circle"></i> Profile</a>
+      </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt fa-lg"></i> Logout</a>
+        </li>
+
+        
+        
+      <% } else { %>
+        <li class="nav-item">
+          <a class="nav-link" href="/login"><i class="fas fa-sign-in-alt fa-lg"></i> Login</a>
+        </li>
+      <% } %>
+
+      
+
+    </ul>
+  </div>
+</div>
+
+</nav>
+</div>
+<div class="box"></div>

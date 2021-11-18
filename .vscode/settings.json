@@ -8,5 +8,8 @@
         "**/Thumbs.db": true,
         ".history": true
     },
-    "explorerExclude.backup": null
+    "explorerExclude.backup": null,
+    "cSpell.words": [
+        "janaathv"
+    ]
 }
