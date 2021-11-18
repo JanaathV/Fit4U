@@ -18,11 +18,6 @@ export function DisplayProductPage(req: Request, res: Response, next: NextFuncti
     res.render('index', { title: 'Product Page', page: 'productpage',  displayName: UserDisplayName(req)  });
 }
 
-export function DisplayProfilePage(req: Request, res: Response, next: NextFunction): void
-{
-    res.render('index', { title: 'Profile Page', page: 'profile',  displayName: UserDisplayName(req)  });
-}
-
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void
 {
     if(!req.user)
