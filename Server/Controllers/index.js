@@ -84,7 +84,7 @@ function ProcessRegisterPage(req, res, next) {
 exports.ProcessRegisterPage = ProcessRegisterPage;
 function ProcessLogoutPage(req, res, next) {
     req.logout();
-    res.redirect('/login');
+    res.redirect('/home');
 }
 exports.ProcessLogoutPage = ProcessLogoutPage;
 //# sourceMappingURL=index.js.map
