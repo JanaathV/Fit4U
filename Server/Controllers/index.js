@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayProfilePage = exports.DisplayProductPage = exports.DisplayHomePage = void 0;
+exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayCheckoutPage = exports.DisplayCartPage = exports.DisplayProfilePage = exports.DisplayProductPage = exports.DisplayHomePage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 const Util_1 = require("../Util");
@@ -19,6 +19,14 @@ function DisplayProfilePage(req, res, next) {
     res.render('index', { title: 'Profile Page', page: 'profile', displayName: Util_1.UserDisplayName(req) });
 }
 exports.DisplayProfilePage = DisplayProfilePage;
+function DisplayCartPage(req, res, next) {
+    res.render('index', { title: 'Cart', page: 'cart', displayName: Util_1.UserDisplayName(req) });
+}
+exports.DisplayCartPage = DisplayCartPage;
+function DisplayCheckoutPage(req, res, next) {
+    res.render('index', { title: 'Checkout', page: 'checkout', displayName: Util_1.UserDisplayName(req) });
+}
+exports.DisplayCheckoutPage = DisplayCheckoutPage;
 function DisplayLoginPage(req, res, next) {
     if (!req.user) {
         return res.render('index', { title: 'Login', page: 'login', messages: req.flash('loginMessage'), displayName: Util_1.UserDisplayName(req) });

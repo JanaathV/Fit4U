@@ -28,11 +28,6 @@ export function DisplayCartPage(req: Request, res: Response, next: NextFunction)
     res.render('index', { title: 'Cart', page: 'cart',  displayName: UserDisplayName(req)  });
 }
 
-export function DisplayCheckoutPage(req: Request, res: Response, next: NextFunction): void
-{
-    res.render('index', { title: 'Checkout', page: 'checkout',  displayName: UserDisplayName(req)  });
-}
-
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void
 {
     if(!req.user)

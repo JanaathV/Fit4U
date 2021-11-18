@@ -30,7 +30,7 @@ export function DisplayCartPage(req: Request, res: Response, next: NextFunction)
 
 export function DisplayCheckoutPage(req: Request, res: Response, next: NextFunction): void
 {
-    res.render('index', { title: 'Checkout', page: 'checkout',  displayName: UserDisplayName(req)  });
+    res.render('index', { title: 'Checkout', page: 'cart',  displayName: UserDisplayName(req)  });
 }
 
 export function DisplayLoginPage(req: Request, res: Response, next: NextFunction): void

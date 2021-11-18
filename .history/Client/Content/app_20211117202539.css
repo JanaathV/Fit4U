@@ -11,9 +11,8 @@ body {
   font-family: "Russo One", sans-serif;
 }
 
-h1 {
-  text-align: center;
-  padding: 50px;
+.h1 {
+  align-content: center;
 }
 
 #banner-msg {

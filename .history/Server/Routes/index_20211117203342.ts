@@ -4,7 +4,7 @@ const router = express.Router();
 export default router;
 
 // instantiate an object of type index controller DisplayCompetitorsListPage
-import { DisplayHomePage, DisplayProductPage, DisplayProfilePage, DisplayCartPage, DisplayCheckoutPage, DisplayLoginPage, ProcessLoginPage,  DisplayRegisterPage, ProcessRegisterPage, ProcessLogoutPage } from '../Controllers/index';
+import { DisplayHomePage, DisplayProductPage, DisplayProfilePage, DisplayCartPage, DisplayLoginPage, ProcessLoginPage,  DisplayRegisterPage, ProcessRegisterPage, ProcessLogoutPage } from '../Controllers/index';
 /* GET home page. */
 router.get('/', DisplayHomePage);
 
@@ -19,7 +19,6 @@ router.get('/profile', DisplayProfilePage);
 
 router.get('/cart', DisplayCartPage);
 
-router.get('/cart', DisplayCheckoutPage);
 
 
 /* GET view login page */
