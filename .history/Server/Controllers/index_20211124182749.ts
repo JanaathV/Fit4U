@@ -20,12 +20,12 @@ export function DisplayProductPage(req: Request, res: Response, next: NextFuncti
 
 export function DisplayProfilePage(req: Request, res: Response, next: NextFunction): void
 {
-    User.find(function (err, usersCollection){
+    User.find(function (err, usersCollection)){
         if (err) {
             return console.error(err);
         }
         res.render('index', { title: 'Profile Page', page: 'profile', user: usersCollection,  displayName: UserDisplayName(req)  });
-    });
+    }
 }
 
 export function DisplayCartPage(req: Request, res: Response, next: NextFunction): void
