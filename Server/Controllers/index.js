@@ -16,14 +16,7 @@ function DisplayProductPage(req, res, next) {
 }
 exports.DisplayProductPage = DisplayProductPage;
 function DisplayProfilePage(req, res, next) {
-    passport_1.default.authenticate('local', (err, user, info) => {
-        user_1.default.find(function (err, userCollection) {
-            if (err) {
-                return console.error(err);
-            }
-            res.render('index', { title: 'Profile Page', page: 'profile', user: userCollection, displayName: Util_1.UserDisplayName(req) });
-        });
-    })(req, res, next);
+    res.render('index', { title: 'Profile Page', page: 'profile', displayName: Util_1.UserDisplayName(req) });
 }
 exports.DisplayProfilePage = DisplayProfilePage;
 function DisplayCartPage(req, res, next) {
