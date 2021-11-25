@@ -1,0 +1,11 @@
+<% for(let count=0; count < 1; count++) { %>
+<h1>Welcome <%=user[count].username %></h1>
+ <% } %>
+
+<td>
+  <ul>
+    {{#each user}}
+      <li>{{username}}</li>
+    {{/each}}
+  </ul>
+</td>

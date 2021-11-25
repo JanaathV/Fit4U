@@ -11,7 +11,7 @@ import { UserDisplayName } from '../Util/index';
 router.get('/', DisplayHomePage);
 
 /* GET home page. */
-router.get('/home', UserDisplayName, DisplayHomePage);
+router.get('/home', DisplayHomePage);
 
 
 router.get('/productpage', DisplayProductPage);

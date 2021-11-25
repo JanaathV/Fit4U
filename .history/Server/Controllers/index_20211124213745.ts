@@ -20,17 +20,14 @@ export function DisplayProductPage(req: Request, res: Response, next: NextFuncti
 
 export function DisplayProfilePage(req: Request, res: Response, next: NextFunction): void
 {
-    passport.authenticate('local', (err, user, info) => {
-
-        User.find(function (err, userCollection) {
-            if(err)
-            {
-                return console.error(err);
-            }
-            res.render('index', { title: 'Profile Page', page: 'profile', user: userCollection,  displayName: UserDisplayName(req)  });
+    User.find(function (err, userCollection) {
+        if(err)
+        {
+            return console.error(err);
+        }
+        res.render('index', { title: 'Profile Page', page: 'profile', user: userCollection,  displayName: UserDisplayName(req)  });
 
     });
-    })(req, res, next);
 }
 
 export function DisplayCartPage(req: Request, res: Response, next: NextFunction): void

@@ -29,7 +29,7 @@ export function DisplayProfilePage(req: Request, res: Response, next: NextFuncti
             }
             res.render('index', { title: 'Profile Page', page: 'profile', user: userCollection,  displayName: UserDisplayName(req)  });
 
-    });
+        });
     })(req, res, next);
 }
 
