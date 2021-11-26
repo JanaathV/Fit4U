@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayContactUsPage = exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayCheckoutPage = exports.DisplayCartPage = exports.UpdateCartPage = exports.DisplayProfilePage = exports.DisplayProductPage = exports.DisplayHomePage = void 0;
+exports.DisplayContactUsPage = exports.ProcessLogoutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayCheckoutPage = exports.DisplayCartPage = exports.DisplayProfilePage = exports.DisplayProductPage = exports.DisplayHomePage = void 0;
 const passport_1 = __importDefault(require("passport"));
 const user_1 = __importDefault(require("../Models/user"));
 const cart_1 = __importDefault(require("../Models/cart"));
@@ -45,7 +45,7 @@ function DisplayCartPage(req, res, next) {
   }
   exports.DisplayCartPage = DisplayCartPage;
 
-  function UpdateCartPage(req, res, next) {
+function UpdateCartPage(req, res, next) {
     let query;
     if (req.user) {
       query = cart_1.default.findOne({ userId: req.user.id });
@@ -70,7 +70,6 @@ function DisplayCartPage(req, res, next) {
     });
   }
   exports.UpdateCartPage = UpdateCartPage;
-
 function DisplayCheckoutPage(req, res, next) {
     res.render('index', { title: 'Checkout', page: 'checkout', displayName: Util_1.UserDisplayName(req) });
 }

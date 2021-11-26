@@ -45,7 +45,7 @@ function DisplayCartPage(req, res, next) {
   }
   exports.DisplayCartPage = DisplayCartPage;
 
-  function UpdateCartPage(req, res, next) {
+function UpdateCartPage(req, res, next) {
     let query;
     if (req.user) {
       query = cart_1.default.findOne({ userId: req.user.id });
@@ -70,7 +70,6 @@ function DisplayCartPage(req, res, next) {
     });
   }
   exports.UpdateCartPage = UpdateCartPage;
-
 function DisplayCheckoutPage(req, res, next) {
     res.render('index', { title: 'Checkout', page: 'checkout', displayName: Util_1.UserDisplayName(req) });
 }
