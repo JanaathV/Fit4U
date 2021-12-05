@@ -22,6 +22,7 @@ exports.DisplayContactUsPage =
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));
 const cart_1 = __importDefault(require('../Models/cart'));
+const healthData_1 = __importDefault(require('../Models/healthdata'));
 const Util_1 = require('../Util');
 function DisplayHomePage(req, res, next) {
   res.render('index', {
@@ -49,10 +50,26 @@ function DisplayProfilePage(req, res, next) {
 exports.DisplayProfilePage = DisplayProfilePage;
 
 function DisplayHealthDataPage(req, res, next) {
-  res.render('index', {
-    title: 'Health Data',
-    page: 'healthData',
-    displayName: Util_1.UserDisplayName(req),
+  let query;
+  if (req.user) {
+    query = healthData_1.default.findOne({ userId: req.user.id });
+  } else {
+    res.redirect('/login');
+  }
+
+  query.exec(function (err, healthData) {
+    if (err) return console.error(err);
+    if (healthData) {
+      console.log('HEALTH DATA:', healthData);
+      res.render('index', {
+        title: 'Your Health Data',
+        page: 'healthData',
+        displayName: Util_1.UserDisplayName(req),
+        healthData,
+      });
+    } else {
+      res.redirect('/register');
+    }
   });
 }
 exports.DisplayHealthDataPage = DisplayHealthDataPage;
@@ -177,6 +194,8 @@ function ProcessRegisterPage(req, res, next) {
     return passport_1.default.authenticate('local')(req, res, () => {
       let newCart = new cart_1.default({ userId: req.user.id });
       newCart.save();
+      let newHealthData = new healthData_1.default({ userId: req.user.id });
+      newHealthData.save();
       return res.redirect('/home');
     });
   });
