@@ -15,8 +15,14 @@
           src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
         /><span class="font-weight-bold"><%= displayName %></span
         ><span class="text-black-50"> email@mail.com.my</span><span> </span>
-        <Button class="btn-sm m-1">Export Data</Button>
-        <Button class="btn-sm m-1">Import Data</Button>
+        <a class="btn-warning btn-sm" href="http://">Export Data</a>
+        <a
+          href=""
+          id="exportButton"
+          data-json="<%= JSON.stringify(healthData)%>"
+          >Download</a
+        >
+        <Button id="importButton" class="btn-sm m-1">Import Data</Button>
       </div>
     </div>
     <div class="col-md-8 border-right">
@@ -100,3 +106,31 @@
     </div>
   </div>
 </div>
+<script>
+  var el = document.getElementById('exportButton');
+  var healthData = JSON.parse(el.getAttribute('data-json'));
+  var fields = Object.keys(healthData);
+
+  var header = fields.join(',');
+  console.log(header);
+
+  var replacer = function (key, value) {
+    return value === null ? '' : value;
+  };
+  var values = fields
+    .map(function (fieldName) {
+      return JSON.stringify(healthData[fieldName], replacer);
+    })
+    .join(',');
+
+  var csv = header + '\r\n' + values;
+
+  var encodedUri = encodeURI('data:text/csv;charset=utf-8,' + csv);
+  var link = document.createElement('a');
+  link.setAttribute('href', encodedUri);
+
+  link.setAttribute('download', 'my_health_data.csv');
+  document.body.appendChild(link);
+  console.log(encodedUri);
+  link.click();
+</script>
