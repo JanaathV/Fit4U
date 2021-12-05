@@ -60,7 +60,6 @@ function DisplayHealthDataPage(req, res, next) {
   query.exec(function (err, healthData) {
     if (err) return console.error(err);
     if (healthData) {
-      console.log('HEALTH DATA:', healthData);
       res.render('index', {
         title: 'Your Health Data',
         page: 'healthData',

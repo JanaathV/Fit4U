@@ -3,8 +3,9 @@
 <h1><%= title %></h1>
 
 <div class="container rounded bg-white mt-5 mb-5">
-  <div class="row mb-10" style="height: 110vh">
+  <div class="row">
     <div class="col-md-4 border-right">
+      <!-- Profile Info -->
       <div class="d-flex flex-column align-items-center text-center p-3 py-5">
         <a class="nav-link active" href="/profile"
           ><i class="fas fa-chevron-left"></i> Back</a
@@ -15,19 +16,22 @@
           src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
         /><span class="font-weight-bold"><%= displayName %></span
         ><span class="text-black-50"> email@mail.com.my</span><span> </span>
-        <a class="btn-warning btn-sm" href="http://">Export Data</a>
-        <a
-          href=""
+        <button
+          class="btn-warning btn-sm m-1"
           id="exportButton"
+          onclick="exportData()"
           data-json="<%= JSON.stringify(healthData)%>"
-          >Download</a
+          userName="<%= displayName%>"
         >
-        <Button id="importButton" class="btn-sm m-1">Import Data</Button>
+          Export Data
+        </button>
       </div>
     </div>
-    <div class="col-md-8 border-right">
+    <div class="col-md-8 border-right p-3 py-5">
+      <!-- Health Data -->
       <div
         class="
+          health-data
           d-flex
           flex-wrap flex-row
           align-items-center
@@ -107,30 +111,30 @@
   </div>
 </div>
 <script>
-  var el = document.getElementById('exportButton');
-  var healthData = JSON.parse(el.getAttribute('data-json'));
-  var fields = Object.keys(healthData);
+  function exportData() {
+    var el = document.getElementById('exportButton');
+    var username = el.getAttribute('userName').split(' ').join('_');
+    var healthData = JSON.parse(el.getAttribute('data-json'));
 
-  var header = fields.join(',');
-  console.log(header);
+    var fields = Object.keys(healthData);
+    var header = fields.join(',');
 
-  var replacer = function (key, value) {
-    return value === null ? '' : value;
-  };
-  var values = fields
-    .map(function (fieldName) {
-      return JSON.stringify(healthData[fieldName], replacer);
-    })
-    .join(',');
+    var replacer = function (key, value) {
+      return value === null ? '' : value;
+    };
+    var values = fields
+      .map(function (fieldName) {
+        return JSON.stringify(healthData[fieldName], replacer);
+      })
+      .join(',');
 
-  var csv = header + '\r\n' + values;
+    var csv = header + '\r\n' + values;
 
-  var encodedUri = encodeURI('data:text/csv;charset=utf-8,' + csv);
-  var link = document.createElement('a');
-  link.setAttribute('href', encodedUri);
-
-  link.setAttribute('download', 'my_health_data.csv');
-  document.body.appendChild(link);
-  console.log(encodedUri);
-  link.click();
+    var encodedUri = encodeURI('data:text/csv;charset=utf-8,' + csv);
+    var link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', username + '_my_health_data.csv');
+    document.body.appendChild(link);
+    link.click();
+  }
 </script>

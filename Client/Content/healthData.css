@@ -1,4 +1,5 @@
-.rounded-circle {
+.health-data .rounded-circle {
   background-color: gray;
   color: white;
+  border: 4px solid #ffc107;
 }
