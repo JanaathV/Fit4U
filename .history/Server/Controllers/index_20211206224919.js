@@ -18,7 +18,6 @@ exports.DisplayContactUsPage =
   exports.DisplayProfilePage =
   exports.DisplayProductPage =
   exports.DisplayHomePage =
-  exports.DisplayConfirmedPaymentPage =
     void 0;
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));

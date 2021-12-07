@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: center;
+    background-color: khaki;
+}
+
+.wrapper {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+   
