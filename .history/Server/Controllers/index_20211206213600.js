@@ -134,8 +134,8 @@ function DisplayCheckoutPage(req, res, next) {
     if (err) return console.error(err);
     if (cart) {
       res.render('index', {
-        title: 'Checkout',
-        page: 'checkout',
+        title: 'Your Cart',
+        page: 'cart',
         displayName: Util_1.UserDisplayName(req),
         cart,
       });

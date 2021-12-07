@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    margin-top: 5%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+    input {
+        width: 100%;
+        min-height: 25px;
+        border: 0;
+        font-size: 1rem;
+        letter-spacing: .15rem;
+        margin-top: 5px;
+        
+    }
+
+    label {
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 2px;
+    }

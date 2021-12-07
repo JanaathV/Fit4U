@@ -132,16 +132,24 @@ function DisplayCheckoutPage(req, res, next) {
   }
   query.exec(function (err, cart) {
     if (err) return console.error(err);
-    if (cart) {
-      res.render('index', {
-        title: 'Checkout',
-        page: 'checkout',
-        displayName: Util_1.UserDisplayName(req),
-        cart,
-      });
+    if (!cart) return console.error('NO CART FOUND');
+    if (req.params.cartParam == 'increase') {
+      cart.increaseQuantity();
+    } else if (req.params.cartParam == 'decrease' && cart.quantity > 0) {
+      cart.decreaseQuantity();
+    } else if (req.params.cartParam == 'giftToggle') {
+      cart.toggleGift();
     } else {
-      res.redirect('/register');
+      res.redirect('/cart');
     }
+    cart.save().then(() => {
+      res.redirect('/cart');
+    });
+  });
+  res.render('index', {
+    title: 'Checkout',
+    page: 'checkout',
+    displayName: Util_1.UserDisplayName(req),
   });
 }
 exports.DisplayCheckoutPage = DisplayCheckoutPage;

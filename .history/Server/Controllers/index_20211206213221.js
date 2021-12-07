@@ -124,24 +124,11 @@ function UpdateCartPage(req, res, next) {
 exports.UpdateCartPage = UpdateCartPage;
 
 function DisplayCheckoutPage(req, res, next) {
-    let query;
-  if (req.user) {
-    query = cart_1.default.findOne({ userId: req.user.id });
-  } else {
-    res.redirect('/login');
-  }
-  query.exec(function (err, cart) {
-    if (err) return console.error(err);
-    if (cart) {
-      res.render('index', {
-        title: 'Checkout',
-        page: 'checkout',
-        displayName: Util_1.UserDisplayName(req),
-        cart,
-      });
-    } else {
-      res.redirect('/register');
-    }
+  res.render('index', {
+    title: 'Checkout',
+    page: 'checkout',
+    displayName: Util_1.UserDisplayName(req), 
+    cart,
   });
 }
 exports.DisplayCheckoutPage = DisplayCheckoutPage;

@@ -130,18 +130,10 @@ function DisplayCheckoutPage(req, res, next) {
   } else {
     res.redirect('/login');
   }
-  query.exec(function (err, cart) {
-    if (err) return console.error(err);
-    if (cart) {
-      res.render('index', {
-        title: 'Checkout',
-        page: 'checkout',
-        displayName: Util_1.UserDisplayName(req),
-        cart,
-      });
-    } else {
-      res.redirect('/register');
-    }
+  res.render('index', {
+    title: 'Checkout',
+    page: 'checkout',
+    displayName: Util_1.UserDisplayName(req),
   });
 }
 exports.DisplayCheckoutPage = DisplayCheckoutPage;

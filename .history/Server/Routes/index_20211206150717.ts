@@ -35,7 +35,7 @@ router.get('/register', DisplayRegisterPage);
 /* POST process register page */
 router.post('/register', ProcessRegisterPage);
 
-/* GET view logout page */                  
+/* GET view logout page */                  /*NO NEED FOR POST LOGOUT PAGE*/
 router.get('/logout', ProcessLogoutPage);
 //module.exports = router;
 

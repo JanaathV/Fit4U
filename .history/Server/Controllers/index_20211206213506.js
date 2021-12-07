@@ -142,7 +142,6 @@ function DisplayCheckoutPage(req, res, next) {
     } else {
       res.redirect('/register');
     }
-  });
 }
 exports.DisplayCheckoutPage = DisplayCheckoutPage;
 function DisplayLoginPage(req, res, next) {

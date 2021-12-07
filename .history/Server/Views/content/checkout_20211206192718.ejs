@@ -1,22 +1,5 @@
 <h1>Checkout</h1>
 <div class="container">
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Quantity</th>
-      <th scope="col">Product Name</th>
-      <th scope="col">Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= cart.quantity %></td>
-      <td>Fit4U Standard Edition Smartwatch</td>
-      <td><%=cart.getSubTotal().toFixed(2) %></td>
-    </tr>
-  </tbody>
-</table>
-<h1 > <i class="fas fa-shipping-fast"></i> Shipping Information</h1>
 <form class="row g-3">
   <div class="col-md-6">
     <label for="inputName" class="form-label">First Name</label>
@@ -62,19 +45,19 @@
     <label for="inputPostalCode" class="form-label">Postal Code</label>
     <input type="text" class="form-control" id="inputPostalCode">
   </div>
-  
-  <h1><i class="far fa-credit-card"></i> Payment Information</h1>
-  <div class="col-md-6">
-    <label for="inputCardNumber" class="form-label">Card Number</label>
-    <input type="text" class="form-control" id="inputCardNumber">
-  </div>
-  <div class="col-md-6">
-    <label for="inputExpiry" class="form-label">Expiry Date (mm/yy)</label>
-    <input type="text" class="form-control" id="inputExpiry">
-  </div>
-  <div class="col-3">
-    <label for="inputSecurity" class="form-label">CVV</label>
-    <input type="text" class="form-control" id="inputSecurity">
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" href="/home">Purchase</button>
   </div>
 </form>
+<div class="row g-3">
+    <div class="col-12">
+      Column
+    </div>
+    <div class="col">
+      Column
+    </div>
+    <div class="col">
+      Column
+    </div>
+  </div>
 </div>
