@@ -46,8 +46,7 @@ function DisplayProfilePage(req, res, next) {
     title: 'Profile Page',
     page: 'profile',
     displayName: Util_1.UserDisplayName(req),
-    emailAddress: Util_1.UserEMail(req),
-    username: Util_1.UserName(req),
+    user,
   });
 }
 exports.DisplayProfilePage = DisplayProfilePage;
@@ -68,7 +67,6 @@ function DisplayHealthDataPage(req, res, next) {
         page: 'healthData',
         displayName: Util_1.UserDisplayName(req),
         healthData,
-        emailAddress: Util_1.UserEMail(req),
       });
     } else {
       res.redirect('/register');

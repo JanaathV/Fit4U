@@ -47,7 +47,6 @@ function DisplayProfilePage(req, res, next) {
     page: 'profile',
     displayName: Util_1.UserDisplayName(req),
     emailAddress: Util_1.UserEMail(req),
-    username: Util_1.UserName(req),
   });
 }
 exports.DisplayProfilePage = DisplayProfilePage;

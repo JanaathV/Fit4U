@@ -33,7 +33,7 @@ const HealthDataSchema = new Schema(
       default: 0,
     },
     exposureFree: {
-      type: String,
+      type: Number,
       default: 0,
     },
   },

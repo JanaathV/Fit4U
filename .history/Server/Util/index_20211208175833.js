@@ -11,19 +11,10 @@ function UserDisplayName(req) {
 }
 exports.UserDisplayName = UserDisplayName;
 
-function UserName(req) {
-    if (req.user) {
-        let user = req.user;
-        return user.username.toString();
-    }
-    return '';
-}
-exports.UserName = UserName;
-
 function UserEMail(req) {
     if (req.user) {
         let user = req.user;
-        return user.emailAddress.toString();
+        return user.String(emailAddress);
     }
     return '';
 }

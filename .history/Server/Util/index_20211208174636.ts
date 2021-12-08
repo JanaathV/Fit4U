@@ -12,6 +12,15 @@ export function UserDisplayName(req: Request): string
     return '';
 }
 
+export function UserEMail(req: Request): string
+{
+    if(req.user)
+    {
+        let user = req.user as UserDocument;
+        return user.emailAddress.toString();
+    }
+    return '';
+}
 
 export function AuthGuard(req: Request, res: Response, next: NextFunction): void
 {
