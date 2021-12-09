@@ -127,6 +127,16 @@ export function DisplayRecoveryPage(req: Request, res: Response, next: NextFunct
     return res.redirect('/home'); /*************NEEDS TO REDIRECT TO ANOTHER PAGE*********/
 }
 
+export function DisplayPasswordResetPage(req: Request, res: Response, next: NextFunction): void
+{
+    if(!req.user)
+    {
+        return res.render('index', { title: 'Password Reset', page: 'passwordReset', messages: req.flash('passwordResetMessage'), displayName: UserDisplayName(req)  });
+    }
+
+    return res.redirect('/home'); /*************NEEDS TO REDIRECT TO ANOTHER PAGE*********/
+}
+
 export function ProcessLogoutPage(req: Request, res: Response, next: NextFunction): void
 {
     req.logout();

@@ -13,6 +13,7 @@ exports.DisplayContactUsPage =
   exports.ProcessLoginPage =
   exports.DisplayLoginPage =
   exports.DisplayRecoveryPage =
+  exports.DisplayPasswordResetPage =
   exports.DisplayCheckoutPage =
   exports.DisplayCartPage =
   exports.UpdateCartPage =
@@ -263,6 +264,18 @@ function DisplayRecoveryPage(req, res, next) {
   return res.redirect('/home');
 }
 exports.DisplayRecoveryPage = DisplayRecoveryPage;
+function DisplayPasswordResetPage(req, res, next) {
+  if (!req.user) {
+    return res.render('index', {
+      title: 'Password Reset',
+      page: 'passwordReset',
+      messages: req.flash('passwordResetMessage'),
+      displayName: Util_1.UserDisplayName(req),
+    });
+  }
+  return res.redirect('/home');
+}
+exports.DisplayPasswordResetPage = DisplayPasswordResetPage;
 function ProcessLogoutPage(req, res, next) {
   req.logout();
   res.redirect('/home');
