@@ -12,6 +12,7 @@ exports.DisplayContactUsPage =
   exports.DisplayRegisterPage =
   exports.ProcessLoginPage =
   exports.DisplayLoginPage =
+  exports.DisplayRecoveryPage =
   exports.DisplayCheckoutPage =
   exports.DisplayCartPage =
   exports.UpdateCartPage =
@@ -250,6 +251,18 @@ function ProcessRegisterPage(req, res, next) {
   });
 }
 exports.ProcessRegisterPage = ProcessRegisterPage;
+function DisplayRecoveryPage(req, res, next) {
+  if (!req.user) {
+    return res.render('index', {
+      title: 'Account Recovery',
+      page: 'recovery',
+      messages: req.flash('recoveryMessage'),
+      displayName: Util_1.UserDisplayName(req),
+    });
+  }
+  return res.redirect('/home');
+}
+exports.DisplayRecoveryPage = DisplayRecoveryPage;
 function ProcessLogoutPage(req, res, next) {
   req.logout();
   res.redirect('/home');

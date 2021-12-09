@@ -117,6 +117,16 @@ export function ProcessRegisterPage(req: Request, res: Response, next: NextFunct
     });
 }
 
+export function DisplayRecoveryPage(req: Request, res: Response, next: NextFunction): void
+{
+    if(!req.user)
+    {
+        return res.render('index', { title: 'Account Recovery', page: 'recovery', messages: req.flash('recoveryMessage'), displayName: UserDisplayName(req)  });
+    }
+
+    return res.redirect('/home'); /*************NEEDS TO REDIRECT TO ANOTHER PAGE*********/
+}
+
 export function ProcessLogoutPage(req: Request, res: Response, next: NextFunction): void
 {
     req.logout();
