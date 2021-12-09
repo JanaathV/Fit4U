@@ -16,7 +16,6 @@ router.get('/cart', index_1.DisplayCartPage);
 router.get('/updateCart/:cartParam', index_1.UpdateCartPage);
 router.get('/checkout', index_1.DisplayCheckoutPage);
 router.post('/checkout', index_1.ProcessCheckoutPage);
-router.get('/confirmedpayment', index_1.DisplayConfirmedPaymentPage);
 router.get('/login', index_1.DisplayLoginPage);
 router.post('/login', index_1.ProcessLoginPage);
 router.get('/register', index_1.DisplayRegisterPage);

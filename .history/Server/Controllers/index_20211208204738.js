@@ -19,7 +19,7 @@ exports.DisplayContactUsPage =
   exports.DisplayProductPage =
   exports.DisplayHomePage =
   exports.ProcessCheckoutPage =
-  exports.DisplayConfirmedPaymentPage =
+  DisplayConfirmedPaymentPage =
     void 0;
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));
@@ -167,19 +167,19 @@ function ProcessCheckoutPage(req, res, next) {
         console.error(err);
         res.end(err);
     }
-    res.redirect('/confirmedpayment');
+    res.redirect('/home');
 });
 }
 exports.ProcessCheckoutPage = ProcessCheckoutPage;
 
-function DisplayConfirmedPaymentPage(req, res, next) {
+function DisplayProductPage(req, res, next) {
   res.render('index', {
     title: 'Confirmed Order',
     page: 'confirmedpayment',
     displayName: Util_1.UserDisplayName(req),
   });
 }
-exports.DisplayConfirmedPaymentPage = DisplayConfirmedPaymentPage;
+exports.DisplayProductPage = DisplayProductPage;
 
 function DisplayLoginPage(req, res, next) {
   if (!req.user) {

@@ -19,7 +19,6 @@ exports.DisplayContactUsPage =
   exports.DisplayProductPage =
   exports.DisplayHomePage =
   exports.ProcessCheckoutPage =
-  exports.DisplayConfirmedPaymentPage =
     void 0;
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));
@@ -160,26 +159,14 @@ function ProcessCheckoutPage(req, res, next) {
     city: req.body.city,
     province: req.body.province,
     postalCode: req.body.postalCode,
-    userId: req.user.id,
   });
-  orderData_1.default.create(newOrder, (err) => {
-    if (err) {
-        console.error(err);
-        res.end(err);
-    }
-    res.redirect('/confirmedpayment');
-});
+  return passport_1.default.authenticate('local')(req, res, () => {
+  orderData_1.default({ userId: req.user.id });
+    orderData.Save();
+      return res.redirect('/home');
+  });
 }
 exports.ProcessCheckoutPage = ProcessCheckoutPage;
-
-function DisplayConfirmedPaymentPage(req, res, next) {
-  res.render('index', {
-    title: 'Confirmed Order',
-    page: 'confirmedpayment',
-    displayName: Util_1.UserDisplayName(req),
-  });
-}
-exports.DisplayConfirmedPaymentPage = DisplayConfirmedPaymentPage;
 
 function DisplayLoginPage(req, res, next) {
   if (!req.user) {

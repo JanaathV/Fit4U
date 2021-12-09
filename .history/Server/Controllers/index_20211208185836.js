@@ -18,14 +18,11 @@ exports.DisplayContactUsPage =
   exports.DisplayProfilePage =
   exports.DisplayProductPage =
   exports.DisplayHomePage =
-  exports.ProcessCheckoutPage =
-  exports.DisplayConfirmedPaymentPage =
     void 0;
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));
 const cart_1 = __importDefault(require('../Models/cart'));
 const healthData_1 = __importDefault(require('../Models/healthdata'));
-const orderData_1 = __importDefault(require('../Models/order'));
 const Util_1 = require('../Util');
 function DisplayHomePage(req, res, next) {
   res.render('index', {
@@ -151,36 +148,6 @@ function DisplayCheckoutPage(req, res, next) {
   });
 }
 exports.DisplayCheckoutPage = DisplayCheckoutPage;
-
-function ProcessCheckoutPage(req, res, next) {
-  let newOrder = new orderData_1.default({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    address: req.body.address,
-    city: req.body.city,
-    province: req.body.province,
-    postalCode: req.body.postalCode,
-    userId: req.user.id,
-  });
-  orderData_1.default.create(newOrder, (err) => {
-    if (err) {
-        console.error(err);
-        res.end(err);
-    }
-    res.redirect('/confirmedpayment');
-});
-}
-exports.ProcessCheckoutPage = ProcessCheckoutPage;
-
-function DisplayConfirmedPaymentPage(req, res, next) {
-  res.render('index', {
-    title: 'Confirmed Order',
-    page: 'confirmedpayment',
-    displayName: Util_1.UserDisplayName(req),
-  });
-}
-exports.DisplayConfirmedPaymentPage = DisplayConfirmedPaymentPage;
-
 function DisplayLoginPage(req, res, next) {
   if (!req.user) {
     return res.render('index', {

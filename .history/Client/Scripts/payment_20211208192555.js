@@ -16,6 +16,7 @@ function confirmPayment() {
     if (fname = null){
         alert("Input cannot be empty");
     } else{
+        alert("Your order has been placed! Please check your e-mail for confirmation.");
     
     }
     

@@ -19,7 +19,6 @@ exports.DisplayContactUsPage =
   exports.DisplayProductPage =
   exports.DisplayHomePage =
   exports.ProcessCheckoutPage =
-  exports.DisplayConfirmedPaymentPage =
     void 0;
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));
@@ -153,33 +152,23 @@ function DisplayCheckoutPage(req, res, next) {
 exports.DisplayCheckoutPage = DisplayCheckoutPage;
 
 function ProcessCheckoutPage(req, res, next) {
-  let newOrder = new orderData_1.default({
-    firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    address: req.body.address,
-    city: req.body.city,
-    province: req.body.province,
-    postalCode: req.body.postalCode,
-    userId: req.user.id,
+  let newOrder = new user_1.default({
+    username: req.body.username,
+    emailAddress: req.body.EmailAddress,
+    displayName: req.body.FirstName + ' ' + req.body.LastName,
   });
-  orderData_1.default.create(newOrder, (err) => {
+  user_1.default.register(newUser, req.body.password, (err) => {
     if (err) {
-        console.error(err);
-        res.end(err);
+      console.error('Error: Inserting New User');
+      if (err.name == 'UserExistsError') {
+        console.error('Error: User Already Exists');
+      }
+      req.flash('registerMessage', 'Registration Error');
+      return res.redirect('/register');
     }
-    res.redirect('/confirmedpayment');
-});
+  });
 }
 exports.ProcessCheckoutPage = ProcessCheckoutPage;
-
-function DisplayConfirmedPaymentPage(req, res, next) {
-  res.render('index', {
-    title: 'Confirmed Order',
-    page: 'confirmedpayment',
-    displayName: Util_1.UserDisplayName(req),
-  });
-}
-exports.DisplayConfirmedPaymentPage = DisplayConfirmedPaymentPage;
 
 function DisplayLoginPage(req, res, next) {
   if (!req.user) {
