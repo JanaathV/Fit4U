@@ -4,12 +4,10 @@
 }
 
 .col {
+    display: ruby-base-container;
+
     text-align: center;
 }
 
-.button {
-    display: ruby-base-container;
-
-}
 
    

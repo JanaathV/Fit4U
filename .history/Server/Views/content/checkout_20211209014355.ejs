@@ -1,8 +1,5 @@
 <h1>Checkout</h1>
 <div class="container">
-
-<h1 > <i class="fas fa-shipping-fast"></i> Shipping Information</h1>
-<form class="row g-3" method="post">
 <table class="table">
   <thead>
     <tr>
@@ -15,10 +12,15 @@
     <tr>
       <td><%= cart.quantity %></td>
       <td>Fit4U Standard Edition Smartwatch</td>
-      <td ><input type="text" class="form-control" placeholder="" name="totalAmount" value="$ <%=cart.getSubTotal().toFixed(2) %>" readonly/></td>
+      <td ><input type="text" class="form-control" placeholder="" value="$ <%=cart.getSubTotal().toFixed(2) %>" readonly/></td>
     </tr>
   </tbody>
 </table>
+<h1 > <i class="fas fa-shipping-fast"></i> Shipping Information</h1>
+<form class="row g-3" method="post">
+  <div class="col-md-6">
+<input type="text" class="form-control" input="inputTotal" value="$ <%=cart.getSubTotal().toFixed(2) %>" readonly/>
+</div>
   <div class="col-md-6">
     <label for="inputName" class="form-label">First Name</label>
     <input type="text" class="form-control" id="inputName" name="firstName" required>

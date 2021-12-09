@@ -191,7 +191,7 @@ function ProcessCheckoutPage(req, res, next) {
     province: req.body.province,
     postalCode: req.body.postalCode,
     userId: req.user.id,
-    orderAmount: req.body.totalAmount,
+    orderAmount: req.body.orderAmount,
   });
   orderData_1.default.create(newOrder, (err) => {
     if (err) {
