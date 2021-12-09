@@ -119,6 +119,8 @@ function UpdateCartPage(req, res, next) {
       cart.increaseQuantity();
     } else if (req.params.cartParam == 'decrease' && cart.quantity > 0) {
       cart.decreaseQuantity();
+    } else if (req.params.cartParam == 'clear'){
+      cart.clearQuantity();
     } else if (req.params.cartParam == 'giftToggle') {
       cart.toggleGift();
     } else {
