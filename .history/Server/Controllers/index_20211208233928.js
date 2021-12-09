@@ -81,26 +81,12 @@ function DisplayHealthDataPage(req, res, next) {
 exports.DisplayHealthDataPage = DisplayHealthDataPage;
 
 function DisplayOrdersPage(req, res, next) {
-  let query;
-  if (req.user) {
-    query = orderData_1.default.find({ userId: req.user.id });
-  } else {
-    res.redirect('/login');
-  }
-
-  query.exec(function (err, orderData) {
-    if (err) return console.error(err);
-    if (orderData) {
-      res.render('index', {
-        title: 'Your Orders',
-        page: 'orders',
-        displayName: Util_1.UserDisplayName(req),
-        emailAddress: Util_1.UserEMail(req),
-        orderData,
-      });
-    } else {
-      res.redirect('/register');
+  orderData_1.default.find((err, OrderDataCollection) => {
+    if (err){
+      console.error(err);
+      res.end(err);
     }
+    res.render('index', {title: 'Your Orders', page: 'orders', orders: OrderDataCollection, displayName: Util_1.UserDisplayName(req), emailAddress: Util_1.UserEMail(req), });
   });
 }
 exports.DisplayOrdersPage = DisplayOrdersPage;

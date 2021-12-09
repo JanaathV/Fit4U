@@ -1,0 +1,66 @@
+<h1>Welcome <%= displayName %></h1>
+<h1><%= title %></h1>
+
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img
+          class="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        /><span class="font-weight-bold"><%= displayName %></span
+        ><span class="text-black-50"> <%= emailAddress %></span><span> </span>
+        <a class="nav-link active" href="/profile/healthData">Health Data</a>
+        <a class="nav-link active" href="/orders">My Orders</a>
+        
+      </div>
+    </div>
+    <div class="col-md-5 border-right">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+  <% for (let count = 0; count < orderData.length; count++) { %>
+    <tr>
+      <td><%= orderData.firstName %></td>
+      <td><%= orderData.lastName %></td>
+      <td><%= orderData.lastName %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= orderData.firstName %></td>
+      <td><%= orderData.lastName %></td>
+      <td><%= orderData.address %></td>
+    </tr>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+
+
+

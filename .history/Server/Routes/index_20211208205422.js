@@ -12,7 +12,7 @@ router.get('/home', index_1.DisplayHomePage);
 router.get('/productpage', index_1.DisplayProductPage);
 router.get('/profile', index_1.DisplayProfilePage);
 router.get('/profile/healthData', index_1.DisplayHealthDataPage);
-router.get('/orders', index_1.DisplayOrdersPage);
+router.get('/profile/orders', index_1.DisplayOrdersPage);
 router.get('/cart', index_1.DisplayCartPage);
 router.get('/updateCart/:cartParam', index_1.UpdateCartPage);
 router.get('/checkout', index_1.DisplayCheckoutPage);

@@ -36,7 +36,7 @@ function FirstName(req) {
     }
     return '';
 }
-exports.FirstName = FirstName;
+exports.UserName = UserName;
 
 function AuthGuard(req, res, next) {
     if (!req.isAuthenticated()) {

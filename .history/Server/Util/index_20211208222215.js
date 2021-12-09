@@ -30,9 +30,9 @@ function UserEMail(req) {
 exports.UserEMail = UserEMail;
 
 function FirstName(req) {
-    if (req.order) {
-        let order = req.order;
-        return order.firstName.toString();
+    if (req.user) {
+        let user = req.user;
+        return user.firstName.toString();
     }
     return '';
 }

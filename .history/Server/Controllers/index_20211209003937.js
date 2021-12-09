@@ -96,7 +96,7 @@ function DisplayOrdersPage(req, res, next) {
         page: 'orders',
         displayName: Util_1.UserDisplayName(req),
         emailAddress: Util_1.UserEMail(req),
-        orderData,
+        order: orderData,
       });
     } else {
       res.redirect('/register');

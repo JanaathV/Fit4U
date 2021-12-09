@@ -117,18 +117,18 @@ h3 {
 }
 
 #comp tr:nth-child(even) {
-  background-color: #0c0505;
+  background-color: #f2f2f2;
 }
 
 #comp tr:hover {
-  background-color: rgb(15, 7, 7);
+  background-color: #ddd;
 }
 
 #comp th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #070c0b;
+  background-color: #d5e1df;
   color: black;
 }
 

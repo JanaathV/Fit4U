@@ -82,8 +82,8 @@ exports.DisplayHealthDataPage = DisplayHealthDataPage;
 
 function DisplayOrdersPage(req, res, next) {
   let query;
-  if (req.user) {
-    query = orderData_1.default.find({ userId: req.user.id });
+  if (req.order) {
+    query = orderData_1.default.findOne({ userId: req.user.id });
   } else {
     res.redirect('/login');
   }
@@ -95,7 +95,6 @@ function DisplayOrdersPage(req, res, next) {
         title: 'Your Orders',
         page: 'orders',
         displayName: Util_1.UserDisplayName(req),
-        emailAddress: Util_1.UserEMail(req),
         orderData,
       });
     } else {
