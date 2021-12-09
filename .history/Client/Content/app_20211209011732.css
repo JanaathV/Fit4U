@@ -3,7 +3,9 @@ html {
   height: 150vh;
 }
 
-
+.container{
+  text-align: center;
+}
 
 .hidden {
   display: none;
