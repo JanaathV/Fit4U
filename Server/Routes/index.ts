@@ -4,7 +4,7 @@ const router = express.Router();
 export default router;
 
 // instantiate an object of type index controller DisplayCompetitorsListPage
-import { DisplayHomePage, DisplayProductPage, DisplayProfilePage, DisplayCartPage, DisplayCheckoutPage, DisplayContactUsPage, DisplayLoginPage, ProcessLoginPage,  DisplayRegisterPage, ProcessRegisterPage, ProcessLogoutPage } from '../Controllers/index';
+import { DisplayHomePage, DisplayProductPage, DisplayProfilePage, DisplayCartPage, DisplayCheckoutPage, DisplayContactUsPage, DisplayLoginPage, ProcessLoginPage,  DisplayRegisterPage, ProcessRegisterPage, DisplayRecoveryPage, DisplayPasswordResetPage, ProcessLogoutPage } from '../Controllers/index';
 import { UserDisplayName } from '../Util/index';
 
 /* GET home page. */
@@ -34,6 +34,12 @@ router.get('/register', DisplayRegisterPage);
 
 /* POST process register page */
 router.post('/register', ProcessRegisterPage);
+
+/* GET view recovery page */
+router.get('/recovery', DisplayRecoveryPage);
+
+/* GET view passwordReset page */
+router.get('/passwordReset', DisplayPasswordResetPage);
 
 /* GET view logout page */                  
 router.get('/logout', ProcessLogoutPage);

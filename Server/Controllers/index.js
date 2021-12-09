@@ -12,6 +12,8 @@ exports.DisplayContactUsPage =
   exports.DisplayRegisterPage =
   exports.ProcessLoginPage =
   exports.DisplayLoginPage =
+  exports.DisplayRecoveryPage =
+  exports.DisplayPasswordResetPage =
   exports.DisplayCheckoutPage =
   exports.DisplayCartPage =
   exports.UpdateCartPage =
@@ -143,6 +145,8 @@ function UpdateCartPage(req, res, next) {
       cart.increaseQuantity();
     } else if (req.params.cartParam == 'decrease' && cart.quantity > 0) {
       cart.decreaseQuantity();
+    } else if (req.params.cartParam == 'clear'){
+      cart.clearQuantity();
     } else if (req.params.cartParam == 'giftToggle') {
       cart.toggleGift();
     } else {
@@ -276,6 +280,30 @@ function ProcessRegisterPage(req, res, next) {
   });
 }
 exports.ProcessRegisterPage = ProcessRegisterPage;
+function DisplayRecoveryPage(req, res, next) {
+  if (!req.user) {
+    return res.render('index', {
+      title: 'Account Recovery',
+      page: 'recovery',
+      messages: req.flash('recoveryMessage'),
+      displayName: Util_1.UserDisplayName(req),
+    });
+  }
+  return res.redirect('/home');
+}
+exports.DisplayRecoveryPage = DisplayRecoveryPage;
+function DisplayPasswordResetPage(req, res, next) {
+  if (!req.user) {
+    return res.render('index', {
+      title: 'Password Reset',
+      page: 'passwordReset',
+      messages: req.flash('passwordResetMessage'),
+      displayName: Util_1.UserDisplayName(req),
+    });
+  }
+  return res.redirect('/home');
+}
+exports.DisplayPasswordResetPage = DisplayPasswordResetPage;
 function ProcessLogoutPage(req, res, next) {
   req.logout();
   res.redirect('/home');
