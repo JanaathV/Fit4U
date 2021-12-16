@@ -13,6 +13,7 @@ exports.DisplayContactUsPage =
   exports.ProcessLoginPage =
   exports.DisplayLoginPage =
   exports.DisplayRecoveryPage =
+  exports.ProcessRecoveryPage =
   exports.DisplayPasswordResetPage =
   exports.DisplayCheckoutPage =
   exports.DisplayCartPage =
@@ -29,6 +30,7 @@ const user_1 = __importDefault(require('../Models/user'));
 const cart_1 = __importDefault(require('../Models/cart'));
 const healthData_1 = __importDefault(require('../Models/healthdata'));
 const orderData_1 = __importDefault(require('../Models/order'));
+const notify_1 = __importDefault(require('../Models/notify'));
 const Util_1 = require('../Util');
 function DisplayHomePage(req, res, next) {
   res.render('index', {
@@ -304,7 +306,15 @@ function DisplayPasswordResetPage(req, res, next) {
   }
   return res.redirect('/home');
 }
+function ProcessRecoveryPage(req, res, next) {
+  let notifyAdmin = new notify_1.default({
+    emailAddress: req.body.EmailAddress
+  });
+    res.redirect('/login');
+}
+exports.ProcessRecoveryPage = ProcessRecoveryPage;
 exports.DisplayPasswordResetPage = DisplayPasswordResetPage;
+
 function ProcessLogoutPage(req, res, next) {
   req.logout();
   res.redirect('/home');
