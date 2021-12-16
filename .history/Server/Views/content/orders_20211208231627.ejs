@@ -1,0 +1,52 @@
+<h1>Welcome <%= displayName %></h1>
+<h1><%= title %></h1>
+
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <img
+          class="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        /><span class="font-weight-bold"><%= displayName %></span
+        ><span class="text-black-50"> <%= emailAddress %></span><span> </span>
+        <a class="nav-link active" href="/profile/healthData">Health Data</a>
+        <a class="nav-link active" href="/orders">My Orders</a>
+        
+      </div>
+    </div>
+    <div class="col-md-5 border-right">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+

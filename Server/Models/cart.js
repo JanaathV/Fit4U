@@ -54,6 +54,10 @@ CartSchema.methods.decreaseQuantity = function (decreaseAmount = 1) {
   this.quantity -= decreaseAmount;
 };
 
+CartSchema.methods.clearQuantity = function(clearAmount = 0){
+  this.quantity = clearAmount;
+}
+
 CartSchema.methods.toggleGift = function () {
     this.gift = !this.gift;
   };

@@ -1,0 +1,13 @@
+.container {
+    display: ruby-base-container;
+    justify-content: center;
+}
+
+.col {
+    display: ruby-base-container;
+
+    text-align: center;
+}
+
+
+   

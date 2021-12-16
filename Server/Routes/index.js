@@ -12,6 +12,7 @@ router.get('/home', index_1.DisplayHomePage);
 router.get('/productpage', index_1.DisplayProductPage);
 router.get('/profile', index_1.DisplayProfilePage);
 router.get('/profile/healthData', index_1.DisplayHealthDataPage);
+router.get('/orders', index_1.DisplayOrdersPage);
 router.get('/cart', index_1.DisplayCartPage);
 router.get('/updateCart/:cartParam', index_1.UpdateCartPage);
 router.get('/checkout', index_1.DisplayCheckoutPage);
@@ -21,6 +22,8 @@ router.get('/login', index_1.DisplayLoginPage);
 router.post('/login', index_1.ProcessLoginPage);
 router.get('/register', index_1.DisplayRegisterPage);
 router.post('/register', index_1.ProcessRegisterPage);
+router.get('/recovery', index_1.DisplayRecoveryPage);
+router.get('/passwordReset', index_1.DisplayPasswordResetPage);
 router.get('/logout', index_1.ProcessLogoutPage);
 router.get('/contactus', index_1.DisplayContactUsPage);
 //# sourceMappingURL=index.js.map

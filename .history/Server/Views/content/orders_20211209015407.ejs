@@ -1,0 +1,59 @@
+<h1>Welcome <%= displayName %></h1>
+
+<div class="container rounded bg-white mt-8 mb-5">
+  <div class="row">
+    <div class="col-md-3 border-right">
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+       <a class="nav-link active" href="/profile"
+          ><i class="fas fa-chevron-left"></i> Back</a
+        >
+        <img
+          class="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        /><span class="font-weight-bold"><%= displayName %></span
+        ><span class="text-black-50"> <%= emailAddress %></span><span> </span>
+        <a class="nav-link active" href="/profile/healthData">Health Data</a>
+        <a class="nav-link active" href="/orders">My Orders</a>
+        
+      </div>
+    </div>
+    <div class="col-md-9 border-right">
+    <h3>My Orders</h3>
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+      <th scope="col">Province</th>
+      <th scope="col">Postal Code</th>
+      <th scope="col">Order Amount</th>
+      <th scope="col">Date of Order</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+  <% for (let count = 0; count < orderData.length; count++) { %>
+    <tr>
+      <td><%= orderData[count].firstName %></td>
+      <td><%= orderData[count].lastName %></td>
+      <td><%= orderData[count].address %></td>
+      <td><%= orderData[count].city %></td>
+      <td><%= orderData[count].province %></td>
+      <td><%= orderData[count].postalCode %></td>
+      <td><%= orderData[count].orderAmount %></td>
+      <td><%= orderData[count].created %></td>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
+    </div>
+  </div>
+</div>
+
+
+
+

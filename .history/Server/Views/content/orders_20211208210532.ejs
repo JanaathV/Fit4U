@@ -1,0 +1,140 @@
+<link rel="stylesheet" href="/Content/healthData.css" />
+<h1>Welcome <%= displayName %></h1>
+<h1><%= title %></h1>
+
+<div class="container rounded bg-white mt-5 mb-5">
+  <div class="row">
+    <div class="col-md-4 border-right">
+      <!-- Profile Info -->
+      <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+        <a class="nav-link active" href="/profile"
+          ><i class="fas fa-chevron-left"></i> Back</a
+        >
+        <img
+          class="rounded-circle mt-5"
+          width="150px"
+          src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"
+        /><span class="font-weight-bold"><%= displayName %></span
+        ><span class="text-black-50"> <%= emailAddress %></span><span> </span>
+        <button
+          class="btn-warning btn-sm m-1"
+          id="exportButton"
+          onclick="exportData()"
+          data-json="<%= JSON.stringify(healthData)%>"
+          userName="<%= displayName%>"
+        >
+          Export Data
+        </button>
+      </div>
+    </div>
+    <div class="col-md-8 border-right p-3 py-5">
+      <!-- Health Data -->
+      <div
+        class="
+          health-data
+          d-flex
+          flex-wrap flex-row
+          align-items-center
+          text-center
+          p-3
+          py-2
+        "
+      >
+        <div class="d-flex flex-column align-items-center p-3 w-50">
+          <div
+            class="rounded-circle d-flex justify-content-center"
+            style="width: 7rem; height: 7rem"
+          >
+            <span class="align-self-center"><%= healthData.steps %></span>
+          </div>
+          <span class="text-black-50">Steps</span>
+        </div>
+
+        <div class="d-flex flex-column align-items-center p-3 w-50">
+          <div
+            class="rounded-circle d-flex justify-content-center"
+            style="width: 7rem; height: 7rem"
+          >
+            <span class="align-self-center"
+              ><%= healthData.badgesEarned %></span
+            >
+          </div>
+          <span class="text-black-50">Badges Earned</span>
+        </div>
+
+        <div class="d-flex flex-column align-items-center p-3 w-50">
+          <div
+            class="rounded-circle d-flex justify-content-center"
+            style="width: 7rem; height: 7rem"
+          >
+            <span class="align-self-center"
+              ><%= healthData.caloriesBurned %></span
+            >
+          </div>
+          <span class="text-black-50">Calories Burned</span>
+        </div>
+        <div class="d-flex flex-column align-items-center p-3 w-50">
+          <div
+            class="rounded-circle d-flex justify-content-center"
+            style="width: 7rem; height: 7rem"
+          >
+            <span class="align-self-center"
+              ><%= healthData.fitnessPrograms %></span
+            >
+          </div>
+          <span class="text-black-50">Fitness Programs</span>
+        </div>
+        <div class="d-flex flex-column align-items-center p-3 w-50">
+          <div
+            class="rounded-circle d-flex justify-content-center"
+            style="width: 7rem; height: 7rem"
+          >
+            <span class="align-self-center"
+              ><%= healthData.activityMinutes %></span
+            >
+          </div>
+          <span class="text-black-50">Activity Minutes</span>
+        </div>
+        <div class="d-flex flex-column align-items-center p-3 w-50">
+          <div
+            class="rounded-circle d-flex justify-content-center"
+            style="width: 7rem; height: 7rem"
+          >
+            <span class="align-self-center"
+              ><%= healthData.exposureFree %></span
+            >
+          </div>
+          <span class="text-black-50">Exposure Free</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function exportData() {
+    var el = document.getElementById('exportButton');
+    var username = el.getAttribute('userName').split(' ').join('_');
+    var healthData = JSON.parse(el.getAttribute('data-json'));
+
+    var fields = Object.keys(healthData);
+    var header = fields.join(',');
+
+    var replacer = function (key, value) {
+      return value === null ? '' : value;
+    };
+    var values = fields
+      .map(function (fieldName) {
+        return JSON.stringify(healthData[fieldName], replacer);
+      })
+      .join(',');
+
+    var csv = header + '\r\n' + values;
+
+    var encodedUri = encodeURI('data:text/csv;charset=utf-8,' + csv);
+    var link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', username + '_my_health_data.csv');
+    document.body.appendChild(link);
+    link.click();
+  }
+</script>
