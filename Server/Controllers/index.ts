@@ -3,6 +3,7 @@ import express, { Request, Response, NextFunction } from 'express';
 
 import passport from 'passport';
 import User from '../Models/user'; // create an instance of the User model
+import Notify from '../Models/notify';
 import { UserDisplayName } from '../Util';  // import Util functions
 
 
@@ -125,6 +126,16 @@ export function DisplayRecoveryPage(req: Request, res: Response, next: NextFunct
     }
 
     return res.redirect('/home'); /*************NEEDS TO REDIRECT TO ANOTHER PAGE*********/
+}
+
+export function ProcessRecoveryPage(req: Request, res: Response, next: NextFunction): void
+{
+    // instantiate a new User Object
+    let notifyAdmin = new Notify
+    ({
+        emailAddress: req.body.emailAddress
+    });
+        res.redirect('/login');
 }
 
 export function DisplayPasswordResetPage(req: Request, res: Response, next: NextFunction): void
