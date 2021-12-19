@@ -142,10 +142,11 @@ function UpdateCartPage(req, res, next) {
     if (err) return console.error(err);
     if (!cart) return console.error('NO CART FOUND');
     if (req.params.cartParam == 'increase') {
-      cart.increaseQuantity();
+      const amount = req.params.amount ? parseInt(req.params.amount) : 1;
+      cart.increaseQuantity(amount);
     } else if (req.params.cartParam == 'decrease' && cart.quantity > 0) {
       cart.decreaseQuantity();
-    } else if (req.params.cartParam == 'clear'){
+    } else if (req.params.cartParam == 'clear') {
       cart.clearQuantity();
     } else if (req.params.cartParam == 'giftToggle') {
       cart.toggleGift();
@@ -160,7 +161,7 @@ function UpdateCartPage(req, res, next) {
 exports.UpdateCartPage = UpdateCartPage;
 
 function DisplayCheckoutPage(req, res, next) {
-    let query;
+  let query;
   if (req.user) {
     query = cart_1.default.findOne({ userId: req.user.id });
   } else {
@@ -195,11 +196,11 @@ function ProcessCheckoutPage(req, res, next) {
   });
   orderData_1.default.create(newOrder, (err) => {
     if (err) {
-        console.error(err);
-        res.end(err);
+      console.error(err);
+      res.end(err);
     }
     res.redirect('/confirmedpayment');
-});
+  });
 }
 exports.ProcessCheckoutPage = ProcessCheckoutPage;
 
@@ -318,6 +319,5 @@ function DisplayContactUsPage(req, res, next) {
   });
 }
 exports.DisplayContactUsPage = DisplayContactUsPage;
-
 
 //# sourceMappingURL=index.js.map

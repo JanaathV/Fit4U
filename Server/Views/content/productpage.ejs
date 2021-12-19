@@ -21,7 +21,11 @@
              document.getElementById(field).value = nr - 1;
            }
          }
-        } 
+        }
+
+        function get_product_amount(field) {
+          return parseInt(document.getElementById(field).value);
+        }
         </script>
          
         <style type="text/css">
@@ -83,7 +87,7 @@
 
                       <br></br>
                     
-                      <button style="background-color:rgb(45, 117, 250); color:white" onclick="window.location.href='http://localhost:3000/updateCart/increase';">
+                      <button style="background-color:rgb(45, 117, 250); color:white" onclick="window.location.href=`/updateCart/increase/${get_product_amount('qty1')}`;">
                         Add to Cart
                       </button>                     
 
