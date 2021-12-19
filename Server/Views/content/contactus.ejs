@@ -7,21 +7,21 @@
     <div class="container">
 
         <div class="container">
-            <form id="contact-form" name="contact-form" action="mail.php" method="POST">
+            <form id="contact-form" name="contact-form" method="POST">
 
                     <div class="row">
 
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                         <label for="name" class="">Your name</label>
-                            <input type="text" id="name" name="name" class="form-control">
+                            <input type="text" id="name" name="name" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-md-6">
                         <div class="md-form mb-0">
                         <label for="email" class="">Your email</label>
-                            <input type="text" id="email" name="email" class="form-control">
+                            <input type="text" id="email" name="email" class="form-control" required>
                             
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                     <div class="col-md-12">
                         <div class="md-form mb-0">
                         <label for="subject" class="">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control">
+                            <input type="text" id="subject" name="subject" class="form-control" required>
                             
                         </div>
                     </div>
@@ -54,12 +54,13 @@
 
                     </div>
                 </div>
-
+                <br>
+                <div class="text-center text-md-left">
+                    <button id="submitButton" type="submit" class="btn btn-primary">Send</button>
+                </div>
             </form>
-            <br>
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-            </div>
+            
+            
             <div class="status"></div>
         </div>
         <br>
