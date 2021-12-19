@@ -30,6 +30,7 @@ const user_1 = __importDefault(require('../Models/user'));
 const cart_1 = __importDefault(require('../Models/cart'));
 const healthData_1 = __importDefault(require('../Models/healthdata'));
 const orderData_1 = __importDefault(require('../Models/order'));
+const contact_1 = __importDefault(require('../Models/contact'));
 const Util_1 = require('../Util');
 function DisplayHomePage(req, res, next) {
   res.render('index', {
