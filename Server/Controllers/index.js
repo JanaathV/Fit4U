@@ -23,6 +23,7 @@ exports.DisplayContactUsPage =
   exports.ProcessCheckoutPage =
   exports.DisplayConfirmedPaymentPage =
   exports.DisplayOrdersPage =
+  exports.ProcessContactUsPage =
     void 0;
 const passport_1 = __importDefault(require('passport'));
 const user_1 = __importDefault(require('../Models/user'));
@@ -319,5 +320,21 @@ function DisplayContactUsPage(req, res, next) {
   });
 }
 exports.DisplayContactUsPage = DisplayContactUsPage;
-
+function ProcessContactUsPage(req, res, next) {
+  let newContact = new contact_1.default({
+    fullName: req.body.name,
+    emailAddress: req.body.email,
+    subject: req.body.subject,
+    message: req.body.message
+  });
+  contact_1.default.create(newContact, (err) => {
+    if (err) {
+        console.error(err);
+        res.end(err);
+    }
+    res.redirect('/home');
+});
+  
+}
+exports.ProcessContactUsPage = ProcessContactUsPage;
 //# sourceMappingURL=index.js.map
