@@ -26,4 +26,6 @@ router.get('/recovery', index_1.DisplayRecoveryPage);
 router.get('/passwordReset', index_1.DisplayPasswordResetPage);
 router.get('/logout', index_1.ProcessLogoutPage);
 router.get('/contactus', index_1.DisplayContactUsPage);
+router.post('/contactus', index_1.ProcessContactUsPage);
+
 //# sourceMappingURL=index.js.map
